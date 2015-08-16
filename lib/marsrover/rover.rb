@@ -30,6 +30,8 @@ module MarsRoverApp
       when "M"
         if MOVEMENT_DIRECTION_X.has_key?(@direction)
           @x_cordinate += MOVEMENT_DIRECTION_X[@direction]
+        else
+          @y_cordinate = 1
         end
       end
     end
