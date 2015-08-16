@@ -3,6 +3,7 @@ module MarsRoverApp
   describe "rover" do
     context "movement" do
       let(:rover) { Rover.new(0, 0, E) }
+      let(:rover_facing_west) { Rover.new(1, 1, W) }
       it "should change direction clockwise if command is R" do
         rover.command("R")
         expect(rover.direction).to eq(S)
@@ -16,6 +17,11 @@ module MarsRoverApp
       it "should move forward along x direction when given M" do
         rover.command("M")
         expect(rover.x_cordinate).to eq(1)
+      end
+
+      it "should move in reverse along x direction when given M if facing west" do
+        rover_facing_west.command("M")
+        expect(rover_facing_west.x_cordinate).to eq(0)
       end
     end
   end
